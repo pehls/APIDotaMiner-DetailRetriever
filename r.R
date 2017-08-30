@@ -1941,3 +1941,4 @@ return(retorno)
 
  debug(getByIDS)
  getByIDS(list)
+list <- c(3394102484,3394102642,3394108528,3394114183)

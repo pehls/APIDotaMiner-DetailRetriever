@@ -1,6 +1,7 @@
 getByIDS <- function(list ){
-  setwd("C:\\Users\\gabri\\git\\APIDotaMiner\\apiMinerDota\\files\\out\\byHero\\test\\00-4")
+  # setwd("C:\\Users\\gabri\\git\\APIDotaMiner\\apiMinerDota\\files\\out\\byHero\\test\\00-4")
   library(jsonlite)
+  library(curl)
   link <- "https://api.opendota.com/api/matches/"
   temp2 <- list()
   retorno2 <- list()
@@ -8,7 +9,7 @@ getByIDS <- function(list ){
   for (i in 1:length(list)){
     
     tryCatch({
-      data2 <- fromJSON(paste(link,paste(list[1],".json",sep=""),sep=""), flatten=TRUE)
+      data2 <- fromJSON(paste(link,list[i],sep=""), flatten=TRUE)
       temp2 = getVariables(data2)
       retorno2 <- rbind(retorno2,temp2)
     },error = function(cond) {
